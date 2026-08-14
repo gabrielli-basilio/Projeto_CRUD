@@ -8,7 +8,9 @@
 </head>
 <body>
     @foreach ($produtos as $produto)
-        <p>{{ $produto->Nome }} - R$ {{ $produto->Preco }}</p>
+        <p>Nome: {{ $produto->Nome }}
+        <p>Preço: R${{ $produto->Preco }}</p>
+        <p>Categoria: {{$produto->categoria->Nome}}</p>
         <hr>    
     @endforeach
 </body>
