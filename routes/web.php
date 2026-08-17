@@ -7,10 +7,11 @@ Route::get('/', function () {
     return redirect('produtos');
 });
 
-Route::get('/produtos', [ProdutoController::class, 'index']);
+Route::prefix('produtos')->group( function(){
+        Route::get('/', [ProdutoController::class, 'index']);
 
-// Rotas de CRUD
-
-Route::get('/produtos/create', [ProdutoController::class, 'create']);
-
-Route::post('/produtos', [ProdutoController::class, 'store']);
+        // Rotas de CRUD
+        Route::get('/create', [ProdutoController::class, 'create']);
+        Route::post('/', [ProdutoController::class, 'store']);
+    }
+);
